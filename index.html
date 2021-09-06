@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fernando Castillo</title>
+    <!--Hola Mundo JavaScript-->
+    <script language="javascript">
+        alert("Hola mundo")
+    </script>
+    <style>
+        h1 {color: green;}
+        h2{font-family: impact;}
+        body{
+            text-align: center;
+            background-color:aquamarine;
+        }
+    </style>
+   
+  </head>
+  <body>
+        <h1>Bienvenidos</h1>
+        <h2>javascript</h2>
+        <p>Ejemplo de doble click sobre el boton para mostrar "mensaje de alerta:"</p>
+        
+
+        <!--Mensaje de alerta-->
+        <button ondblclick="myalert()">
+            Mostrar Mensaje de alerta
+        </button>
+        <hr>
+        <p>
+            Introducir numeros
+        </p>
+        <!--Validar numeros-->
+        <input type="text" name="numero" id="numero" value="" class="data" required
+            onKeyUp="javascript:validarSiNumero(this.value)" />
+        <hr>
+        <p>Introducir correo electronico</p>
+        <!--Validar correo electronico-->
+        <input type="text" name="email" id="email"   value=""  class="data" required onKeyUp="javascript:validateMail('email')" />
+        <hr>
+        
+        <p>
+            Ingresa la fecha en formato dd-mm-yyyy
+        </p>
+            <input id="fecha">
+            <button type="button" onclick="validarFecha()">Confirmar</button>
+        <hr>
+
+        <h2>¿Qué puedo hacer con JavaScript?</h2>
+            <p>JavaScript puede cambiar los valores de los atributos de HTML</p>
+            <p>
+            Para este ejemplo JS cambia los valores del atributo src (source) de la imagen
+            </p>
+
+            <button
+            onclick="document.getElementById('myImage').src='images/bulb_On.jpg'">
+            Encendido
+            </button>
+            <img id="myImage" src="images/bulb_Off.jpg" style="width: 100px;" />
+            <button
+            onclick="document.getElementById('myImage').src='images/bulb_off.jpg'">
+            Apagado
+            </button>
+        <h2>Ejemplo 2</h2>
+        <p>Genero de la persona</p>
+        <button
+            onclick="document.getElementById('myImageGen').src='images/hombre.jpg'">
+            Hombre
+            </button>
+            <img id="myImageGen" src="images/hombre.jpg" style="width: 100px;" />
+            <button
+            onclick="document.getElementById('myImageGen').src='images/mujer.jpg'">
+            Mujer
+            </button>
+            
+
+        <script>
+            function myalert(){
+                alert("Test\n"+"Mensaje de alerta "+ "Sobre un boton");
+            }
+            function validarSiNumero(numero){
+                if (!/^-?[0-9]\d*(\.\d+)?$/.test(numero))
+                    alert("El valor " + numero + " no es un número");
+            }
+            function validateMail(idMail)
+            {
+            //Creamos un objeto
+            object=document.getElementById(idMail);
+            valueForm=object.value;
+
+            //Patron para el correo
+            var patron=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+            if(valueForm.search(patron)==0)
+            {
+                //Mail correcto
+                object.style.color="#000";
+                return;
+            }
+                //Mail incorrecto
+                object.style.color="#f00";
+            }
+            function validarFecha()
+            {
+                var date_regex = /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+                var fecha = document.getElementById("fecha").value;
+                if (date_regex.test(fecha)) 
+                {
+                    alert("Fecha correcta")
+                }else{
+                    alert("Fecha incorrecta")
+                     }
+            }
+
+        </script>
+        <!--Mensaje en caso de que el navegador no acepte o tenga deshabilitado javascript-->
+        <noscript>Tu navegador no admite javascript, o JavaScript esta deshabilitado</noscript>
+
+
+  </body>
+
+  </html>
